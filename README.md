@@ -23,6 +23,21 @@ Requires **Android 8.0 or later**. Download `PepLog-0.6.5.apk`, open it on your 
 
 To update an existing installation, export a backup first and install over the current app without uninstalling it.
 
+## Support PepLog
+
+If PepLog is useful to you, consider supporting its development. Contributions are optional and help support maintenance and future improvements.
+
+You can contribute **USDC** on either of these networks:
+
+| Network | Receiving address |
+| --- | --- |
+| **Solana** | `J9ZWgHB5PLpvteLqqeHRXou9h2RVqRDuezw4AE3iLA1W` |
+| **Ethereum (mainnet)** | `0x83Ee07EEcD21AFa856E187414ba12e304Cf8c218` |
+
+Select **USDC** and the matching network before sending. The Ethereum option is for Ethereum mainnet, not Base or another network. Network and withdrawal fees may apply.
+
+Thank you for supporting PepLog!
+
 ## Your data
 
 Records are stored locally on your device. Android automatic backup is disabled, so export a backup before uninstalling the app or changing devices. JSON backups include your catalog, calculations, protocols, and occurrence records. They are not encrypted. Restore validates the file and asks for confirmation before replacing current data.

@@ -23,56 +23,15 @@ No account or server is required. The app works offline and does not request int
 
 ## Screenshots
 
-### Home
-<p align="center">
-  <a href="docs/images/screens/home.webp">
-    <img src="docs/images/screens/home.webp" alt="PepLog Home screen" width="420" />
-  </a>
-</p>
+Explore PepLog in three screens. **[Browse all 7 screenshots →](docs/SCREENSHOTS.md)**
 
-### Today
-<p align="center">
-  <a href="docs/images/screens/today.webp">
-    <img src="docs/images/screens/today.webp" alt="PepLog Today screen" width="420" />
-  </a>
-</p>
+| Home | Today | History |
+| :---: | :---: | :---: |
+| <a href="docs/SCREENSHOTS.md#home"><img src="docs/images/screens/home.jpg" alt="Home — recent records and new calculation" width="240"></a> | <a href="docs/SCREENSHOTS.md#today"><img src="docs/images/screens/today.jpg" alt="Today — scheduled items and completion controls" width="240"></a> | <a href="docs/SCREENSHOTS.md#history"><img src="docs/images/screens/history.jpg" alt="History — search and date filters" width="240"></a> |
 
-### History
-<p align="center">
-  <a href="docs/images/screens/history.webp">
-    <img src="docs/images/screens/history.webp" alt="PepLog History screen" width="420" />
-  </a>
-</p>
+[Protocols](docs/SCREENSHOTS.md#protocols) · [Protocol detail](docs/SCREENSHOTS.md#protocol-detail) · [Peptides](docs/SCREENSHOTS.md#peptides) · [Settings](docs/SCREENSHOTS.md#settings)
 
-### Protocols
-<p align="center">
-  <a href="docs/images/screens/protocols.webp">
-    <img src="docs/images/screens/protocols.webp" alt="PepLog Protocols screen" width="420" />
-  </a>
-</p>
-
-### Protocol detail
-<p align="center">
-  <a href="docs/images/screens/protocol-detail.webp">
-    <img src="docs/images/screens/protocol-detail.webp" alt="PepLog Protocol detail screen" width="420" />
-  </a>
-</p>
-
-### Peptides
-<p align="center">
-  <a href="docs/images/screens/peptides.webp">
-    <img src="docs/images/screens/peptides.webp" alt="PepLog Peptides screen" width="420" />
-  </a>
-</p>
-
-### Settings
-<p align="center">
-  <a href="docs/images/screens/settings.webp">
-    <img src="docs/images/screens/settings.webp" alt="PepLog Settings screen" width="420" />
-  </a>
-</p>
-
-These are real screenshots captured from PepLog running on Android. Click any screenshot to open it at full resolution.
+Original Android screenshots, with larger previews and links to the full-size JPGs in the gallery.
 
 ## Download version 0.6.5
 

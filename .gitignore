@@ -1,0 +1,22 @@
+.tools/
+.gradle/
+.gradle-home/
+.gradle-home-clean/
+.kotlin/
+**/build/
+local.properties
+signing.properties
+private/
+*.p12
+*.jks
+*.keystore
+artifacts/
+*.iml
+.idea/
+
+# Local planning and historical review notes
+/REVISAO-*.md
+/VALIDACAO-*.md
+/DESIGN.md
+/PLANO.md
+/PROTOCOLOS.md

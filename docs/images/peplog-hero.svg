@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 820" role="img" aria-labelledby="title desc">
+<title id="title">PepLog</title><desc id="desc">PepLog offline Android peptide journal with calculation and protocol screens.</desc>
+<rect width="1600" height="820" fill="#F8FBFC"/><circle cx="1420" cy="80" r="420" fill="#E8F7F4"/><circle cx="150" cy="920" r="420" fill="#E4F6F2"/>
+<g font-family="Inter,Segoe UI,Arial,sans-serif">
+<text x="80" y="155" font-size="105" font-weight="800" fill="#16343B">PepLog</text><rect x="82" y="190" width="130" height="12" rx="6" fill="#ADE1D8"/>
+<text x="82" y="272" font-size="36" font-weight="700" fill="#006B62">Your peptide journal.</text>
+<text x="82" y="350" font-size="45" fill="#16343B">Offline peptide calculations,</text><text x="82" y="405" font-size="45" fill="#16343B">protocol tracking, and</text><text x="82" y="460" font-size="45" fill="#16343B">journal records.</text>
+<g font-size="24" fill="#16343B"><rect x="82" y="600" width="190" height="52" rx="26" fill="#D9F0EB"/><circle cx="108" cy="626" r="6" fill="#006B62"/><text x="128" y="635">Works offline</text><rect x="290" y="600" width="255" height="52" rx="26" fill="#D9F0EB"/><circle cx="316" cy="626" r="6" fill="#006B62"/><text x="336" y="635">No account required</text><rect x="82" y="670" width="185" height="52" rx="26" fill="#D9F0EB"/><circle cx="108" cy="696" r="6" fill="#006B62"/><text x="128" y="705">Local backup</text></g>
+<g transform="rotate(-4 890.0 435.0)">
+<rect x="770" y="171" width="260" height="560" rx="23.4" fill="#0F1719" opacity=".16"/>
+<rect x="760" y="155" width="260" height="560" rx="23.4" fill="#10191B"/>
+<rect x="768" y="163" width="244" height="544" rx="19.5" fill="#F3F7F8"/>
+<circle cx="890.0" cy="171" r="3.12" fill="#0B1112"/>
+<text x="786.7111111111111" y="187.77948717948718" font-size="6.844444444444445" font-weight="700" fill="#16343B">21:35</text>
+<text x="789.2" y="211.96410256410257" font-size="11.822222222222223" font-weight="700" fill="#16343B">PepLog</text>
+<circle cx="986.4444444444445" cy="206.5897435897436" r="4.977777777777778" fill="none" stroke="#16343B" stroke-width="1.12"/>
+<text x="789.2" y="250.25641025641025" font-size="18.666666666666668" fill="#16343B">Your peptide</text>
+<text x="789.2" y="272.425641025641" font-size="18.666666666666668" fill="#16343B">journal.</text>
+<text x="789.2" y="291.2358974358974" font-size="8.711111111111112" fill="#16343B">Calculate, save and find it again.</text>
+<rect x="789.2" y="308.7025641025641" width="200.35555555555555" height="32.246153846153845" rx="6.222222222222222" fill="#006B62"/>
+<text x="799.7777777777778" y="328.85641025641024" font-size="9.333333333333334" font-weight="700" fill="white">+  New calculation</text>
+<text x="789.2" y="369.16410256410256" font-size="11.2" fill="#16343B">Recent records</text>
+<rect x="789.2" y="385.28717948717946" width="200.35555555555555" height="87.33333333333333" rx="7.466666666666667" fill="#D9F0EB"/>
+<text x="799.1555555555556" y="412.8307692307692" font-size="9.333333333333334" font-weight="700" fill="#16343B">A clear place for your records.</text>
+<text x="799.1555555555556" y="432.9846153846154" font-size="7.466666666666667" fill="#16343B">Save your first calculation to start your journal.</text>
+<text x="789.2" y="623.1025641025641" font-size="6.222222222222222" fill="#6E858A">Stored on this device. You control your backup.</text>
+<rect x="778.0" y="656.6923076923076" width="224.0" height="40.30769230769231" fill="white"/>
+<rect x="787.9555555555555" y="661.3948717948717" width="24.88888888888889" height="13.435897435897434" rx="6.222222222222222" fill="#D9F0EB"/>
+<circle cx="800.4" cy="668.1128205128205" r="2.488888888888889" fill="#006B62"/>
+<text x="800.4" y="686.251282051282" text-anchor="middle" font-size="4.977777777777778" fill="#006B62">Home</text>
+<circle cx="845.2" cy="668.1128205128205" r="2.488888888888889" fill="#6E858A"/>
+<text x="845.2" y="686.251282051282" text-anchor="middle" font-size="4.977777777777778" fill="#6E858A">Today</text>
+<circle cx="890.0" cy="668.1128205128205" r="2.488888888888889" fill="#6E858A"/>
+<text x="890.0" y="686.251282051282" text-anchor="middle" font-size="4.977777777777778" fill="#6E858A">History</text>
+<circle cx="934.8" cy="668.1128205128205" r="2.488888888888889" fill="#6E858A"/>
+<text x="934.8" y="686.251282051282" text-anchor="middle" font-size="4.977777777777778" fill="#6E858A">Protocols</text>
+<circle cx="979.6" cy="668.1128205128205" r="2.488888888888889" fill="#6E858A"/>
+<text x="979.6" y="686.251282051282" text-anchor="middle" font-size="4.977777777777778" fill="#6E858A">Peptides</text>
+</g><g>
+<rect x="1010" y="96" width="300" height="645" rx="27.0" fill="#0F1719" opacity=".16"/>
+<rect x="1000" y="80" width="300" height="645" rx="27.0" fill="#10191B"/>
+<rect x="1008" y="88" width="284" height="629" rx="22.5" fill="#F3F7F8"/>
+<circle cx="1150.0" cy="96" r="3.6" fill="#0B1112"/>
+<text x="1028.2666666666667" y="115.17692307692307" font-size="8.066666666666666" font-weight="700" fill="#16343B">21:35</text>
+<text x="1031.2" y="143.2846153846154" font-size="13.933333333333332" font-weight="700" fill="#16343B">PepLog</text>
+<circle cx="1263.6666666666667" cy="137.03846153846155" r="5.866666666666666" fill="none" stroke="#16343B" stroke-width="1.3199999999999998"/>
+<text x="1031.2" y="183.8846153846154" font-size="20.53333333333333" fill="#16343B">A new calculation.</text>
+<text x="1031.2" y="207.30769230769232" font-size="9.533333333333333" fill="#16343B">Your inputs. A record you can return to.</text>
+<rect x="1031.2" y="230.73076923076923" width="236.13333333333333" height="42.94230769230769" rx="6.6" fill="none" stroke="#6E858A" stroke-width="0.7333333333333333"/>
+<text x="1040.0" y="255.7153846153846" font-size="8.799999999999999" fill="#16343B">Select peptide</text>
+<rect x="1031.2" y="293.1923076923077" width="236.13333333333333" height="42.94230769230769" rx="6.6" fill="none" stroke="#6E858A" stroke-width="0.7333333333333333"/>
+<text x="1040.0" y="318.1769230769231" font-size="8.799999999999999" fill="#6E858A">Peptide in vial</text>
+<rect x="1031.2" y="355.65384615384613" width="236.13333333333333" height="42.94230769230769" rx="6.6" fill="none" stroke="#6E858A" stroke-width="0.7333333333333333"/>
+<text x="1040.0" y="380.6384615384615" font-size="8.799999999999999" fill="#6E858A">Final solution volume (mL)</text>
+<rect x="1031.2" y="433.7307692307692" width="236.13333333333333" height="42.94230769230769" rx="6.6" fill="none" stroke="#6E858A" stroke-width="0.7333333333333333"/>
+<text x="1040.0" y="458.7153846153846" font-size="8.799999999999999" fill="#6E858A">Desired amount</text>
+<rect x="1031.2" y="488.38461538461536" width="236.13333333333333" height="74.17307692307692" rx="7.333333333333333" fill="none" stroke="#6E858A" stroke-width="0.7333333333333333"/>
+<text x="1040.0" y="511.8076923076923" font-size="10.266666666666666" font-weight="700" fill="#16343B">My syringe</text>
+<text x="1040.0" y="533.6692307692308" font-size="8.799999999999999" fill="#6E858A">Choose once to calculate</text>
+<text x="1221.8666666666666" y="533.6692307692308" font-size="8.799999999999999" fill="#006B62">Choose</text>
+<rect x="1018.0" y="660.1538461538462" width="264.0" height="46.84615384615385" fill="white"/>
+<rect x="1029.7333333333333" y="665.6192307692307" width="29.333333333333332" height="15.615384615384615" rx="7.333333333333333" fill="#D9F0EB"/>
+<circle cx="1044.4" cy="673.4269230769231" r="2.933333333333333" fill="#006B62"/>
+<text x="1044.4" y="694.5076923076923" text-anchor="middle" font-size="5.866666666666666" fill="#006B62">Home</text>
+<circle cx="1097.2" cy="673.4269230769231" r="2.933333333333333" fill="#6E858A"/>
+<text x="1097.2" y="694.5076923076923" text-anchor="middle" font-size="5.866666666666666" fill="#6E858A">Today</text>
+<circle cx="1150.0" cy="673.4269230769231" r="2.933333333333333" fill="#6E858A"/>
+<text x="1150.0" y="694.5076923076923" text-anchor="middle" font-size="5.866666666666666" fill="#6E858A">History</text>
+<circle cx="1202.8" cy="673.4269230769231" r="2.933333333333333" fill="#6E858A"/>
+<text x="1202.8" y="694.5076923076923" text-anchor="middle" font-size="5.866666666666666" fill="#6E858A">Protocols</text>
+<circle cx="1255.6" cy="673.4269230769231" r="2.933333333333333" fill="#6E858A"/>
+<text x="1255.6" y="694.5076923076923" text-anchor="middle" font-size="5.866666666666666" fill="#6E858A">Peptides</text>
+</g><g transform="rotate(4 1420.0 435.0)">
+<rect x="1300" y="171" width="260" height="560" rx="23.4" fill="#0F1719" opacity=".16"/>
+<rect x="1290" y="155" width="260" height="560" rx="23.4" fill="#10191B"/>
+<rect x="1298" y="163" width="244" height="544" rx="19.5" fill="#F3F7F8"/>
+<circle cx="1420.0" cy="171" r="3.12" fill="#0B1112"/>
+<text x="1316.7111111111112" y="187.77948717948718" font-size="6.844444444444445" font-weight="700" fill="#16343B">21:35</text>
+<text x="1319.2" y="211.96410256410257" font-size="11.822222222222223" font-weight="700" fill="#16343B">PepLog</text>
+<circle cx="1516.4444444444443" cy="206.5897435897436" r="4.977777777777778" fill="none" stroke="#16343B" stroke-width="1.12"/>
+<text x="1319.2" y="246.8974358974359" font-size="17.422222222222224" fill="#16343B">Your protocols.</text>
+<text x="1319.2" y="267.05128205128204" font-size="8.088888888888889" fill="#16343B">Plan each item. Keep track of each day.</text>
+<rect x="1319.2" y="285.86153846153843" width="90.22222222222223" height="30.23076923076923" rx="5.6" fill="#006B62"/>
+<text x="1329.1555555555556" y="304.6717948717949" font-size="8.088888888888889" font-weight="700" fill="white">New protocol</text>
+<rect x="1319.2" y="330.87179487179486" width="200.35555555555555" height="34.93333333333333" rx="5.6" fill="none" stroke="#6E858A" stroke-width="0.6222222222222222"/>
+<text x="1337.8666666666666" y="351.69743589743587" font-size="7.466666666666667" fill="#6E858A">Search protocols</text>
+<rect x="1320.4444444444443" y="381.2564102564103" width="9.955555555555556" height="10.748717948717948" fill="none" stroke="#6E858A"/>
+<text x="1336.6222222222223" y="390.66153846153844" font-size="7.466666666666667" fill="#16343B">Show archived</text>
+<text x="1319.2" y="418.2051282051282" font-size="7.466666666666667" fill="#16343B">Create a protocol and add peptides</text>
+<text x="1319.2" y="431.64102564102564" font-size="7.466666666666667" fill="#16343B">with their own schedules.</text>
+<rect x="1308.0" y="656.6923076923076" width="224.0" height="40.30769230769231" fill="white"/>
+<circle cx="1330.4" cy="668.1128205128205" r="2.488888888888889" fill="#6E858A"/>
+<text x="1330.4" y="686.251282051282" text-anchor="middle" font-size="4.977777777777778" fill="#6E858A">Home</text>
+<circle cx="1375.2" cy="668.1128205128205" r="2.488888888888889" fill="#6E858A"/>
+<text x="1375.2" y="686.251282051282" text-anchor="middle" font-size="4.977777777777778" fill="#6E858A">Today</text>
+<circle cx="1420.0" cy="668.1128205128205" r="2.488888888888889" fill="#6E858A"/>
+<text x="1420.0" y="686.251282051282" text-anchor="middle" font-size="4.977777777777778" fill="#6E858A">History</text>
+<rect x="1452.3555555555556" y="661.3948717948717" width="24.88888888888889" height="13.435897435897434" rx="6.222222222222222" fill="#D9F0EB"/>
+<circle cx="1464.8" cy="668.1128205128205" r="2.488888888888889" fill="#006B62"/>
+<text x="1464.8" y="686.251282051282" text-anchor="middle" font-size="4.977777777777778" fill="#006B62">Protocols</text>
+<circle cx="1509.6" cy="668.1128205128205" r="2.488888888888889" fill="#6E858A"/>
+<text x="1509.6" y="686.251282051282" text-anchor="middle" font-size="4.977777777777778" fill="#6E858A">Peptides</text>
+</g>
+</g></svg>

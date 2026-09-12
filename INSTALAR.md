@@ -2,7 +2,7 @@
 
 Requires **Android 8.0 or later**.
 
-1. Download [PepLog-revisao-backup-ui.apk](https://github.com/marraqy/PepLog/releases/download/v0.6.5/PepLog-revisao-backup-ui.apk).
+1. Download [PepLog-0.6.5.apk](https://github.com/marraqy/PepLog/releases/download/v0.6.5/PepLog-0.6.5.apk).
 2. Open the APK on your Android phone. If prompted, allow installation from the browser or file manager you are using.
 3. Complete installation and open **PepLog**.
 4. English is the default language. To switch languages, open Settings and select Brazilian Portuguese.
@@ -21,7 +21,7 @@ Enable local reminders in Settings and allow notifications when prompted. If And
 
 ## Verify your download
 
-File: `PepLog-revisao-backup-ui.apk`
+File: `PepLog-0.6.5.apk`
 
 SHA-256:
 

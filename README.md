@@ -24,8 +24,10 @@ No account or server is required. The app works offline and does not request int
 ## Screenshots
 
 <p align="center">
-  <img src="docs/images/peplog-screenshots.svg" alt="PepLog screenshots: home, new calculation, protocols, and peptide index" width="100%" />
+  <img src="docs/images/peplog-real-screenshots.jpg" alt="Real PepLog app screenshots: Home, Today, History, Protocols, Protocol detail, Peptides, and Settings" width="100%" />
 </p>
+
+These are real screenshots captured from PepLog running on Android.
 
 ## Download version 0.6.5
 

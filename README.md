@@ -1,5 +1,9 @@
 # PepLog
 
+<p align="center">
+  <img src="docs/images/peplog-hero.svg" alt="PepLog — offline peptide calculations, protocol tracking, and journal records" width="100%" />
+</p>
+
 An offline Android app for peptide calculations, blend composition, and protocol tracking. Keep your calculations, schedules, and daily records together on your device.
 
 ## Features
@@ -14,6 +18,12 @@ An offline Android app for peptide calculations, blend composition, and protocol
 - **Two languages:** English and Brazilian Portuguese.
 
 No account or server is required. The app works offline and does not request internet access. The catalog identifies compounds; it does not recommend doses or assess suitability. Calculated vial yield is theoretical and excludes losses.
+
+## Screenshots
+
+<p align="center">
+  <img src="docs/images/peplog-screenshots.svg" alt="PepLog screenshots: home, new calculation, protocols, and peptide index" width="100%" />
+</p>
 
 ## Download version 0.6.5
 

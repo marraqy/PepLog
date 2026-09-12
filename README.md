@@ -23,11 +23,56 @@ No account or server is required. The app works offline and does not request int
 
 ## Screenshots
 
+### Home
 <p align="center">
-  <img src="docs/images/peplog-real-screenshots-readable.webp" alt="Real PepLog screenshots: Home, Today, History, Protocols, and Peptides" width="809" />
+  <a href="docs/images/screens/home.webp">
+    <img src="docs/images/screens/home.webp" alt="PepLog Home screen" width="420" />
+  </a>
 </p>
 
-These are real screenshots captured from PepLog running on Android, shown at full readable width.
+### Today
+<p align="center">
+  <a href="docs/images/screens/today.webp">
+    <img src="docs/images/screens/today.webp" alt="PepLog Today screen" width="420" />
+  </a>
+</p>
+
+### History
+<p align="center">
+  <a href="docs/images/screens/history.webp">
+    <img src="docs/images/screens/history.webp" alt="PepLog History screen" width="420" />
+  </a>
+</p>
+
+### Protocols
+<p align="center">
+  <a href="docs/images/screens/protocols.webp">
+    <img src="docs/images/screens/protocols.webp" alt="PepLog Protocols screen" width="420" />
+  </a>
+</p>
+
+### Protocol detail
+<p align="center">
+  <a href="docs/images/screens/protocol-detail.webp">
+    <img src="docs/images/screens/protocol-detail.webp" alt="PepLog Protocol detail screen" width="420" />
+  </a>
+</p>
+
+### Peptides
+<p align="center">
+  <a href="docs/images/screens/peptides.webp">
+    <img src="docs/images/screens/peptides.webp" alt="PepLog Peptides screen" width="420" />
+  </a>
+</p>
+
+### Settings
+<p align="center">
+  <a href="docs/images/screens/settings.webp">
+    <img src="docs/images/screens/settings.webp" alt="PepLog Settings screen" width="420" />
+  </a>
+</p>
+
+These are real screenshots captured from PepLog running on Android. Click any screenshot to open it at full resolution.
 
 ## Download version 0.6.5
 

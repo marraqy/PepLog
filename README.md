@@ -129,10 +129,6 @@ For a release build, run `assembleRelease` instead. Without local signing config
 
 The `build.ps1` script targets the maintainer's local `.tools/` setup. Use the Gradle wrapper commands above for a fresh clone.
 
-## Historical review
-
-See the [PepLog 0.6.4 review](REVISAO-0.6.4.md) (in Portuguese), with validation reports for versions 0.6.4 and 0.6.5. These documents describe those releases and their verification limits.
-
 ## License
 
 PepLog is licensed under the **Apache License 2.0**. See [LICENSE](LICENSE) for details.

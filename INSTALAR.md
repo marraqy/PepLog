@@ -1,27 +1,29 @@
-# Install PepLog 0.6.5
+# Instalar o PepLog 0.6.5
 
-Requires **Android 8.0 or later**.
+[Read these instructions in English](INSTALL.md)
 
-1. Download [PepLog-0.6.5.apk](https://github.com/marraqy/PepLog/releases/download/v0.6.5/PepLog-0.6.5.apk).
-2. Open the APK on your Android phone. If prompted, allow installation from the browser or file manager you are using.
-3. Complete installation and open **PepLog**.
-4. English is the default language. To switch languages, open Settings and select Brazilian Portuguese.
+Requer **Android 8.0 ou superior**.
 
-## Updating
+1. Baixe o [PepLog-0.6.5.apk](https://github.com/marraqy/PepLog/releases/download/v0.6.5/PepLog-0.6.5.apk).
+2. Abra o APK no seu celular Android. Se solicitado, permita a instalação de aplicativos a partir do navegador ou gerenciador de arquivos que estiver utilizando.
+3. Conclua a instalação e abra o **PepLog**.
+4. O inglês é o idioma padrão. Para alterar o idioma, abra Configurações e selecione Português (BR).
 
-Export a backup in Settings, then install the APK over your existing app without uninstalling it. Uninstalling can erase your local data; Android automatic backup is disabled.
+## Atualização
+
+Exporte um backup em Configurações e, depois, instale o novo APK por cima da instalação existente, sem desinstalar o aplicativo. A desinstalação pode apagar os dados locais; o backup automático do Android está desativado.
 
 ## Backups
 
-**Export backup** saves an unencrypted JSON file containing your catalog, calculations, protocols, and occurrence records. Keep it in a trusted location. **Restore backup** validates the file and asks for confirmation before replacing current data.
+A opção **Exportar backup** salva um arquivo JSON não criptografado contendo seu catálogo, cálculos, protocolos e registros de ocorrências. Guarde esse arquivo em um local confiável. A opção **Restaurar backup** valida o arquivo e solicita confirmação antes de substituir os dados atuais.
 
-## Reminders
+## Lembretes
 
-Enable local reminders in Settings and allow notifications when prompted. If Android requests exact alarm access, allowing it improves scheduling precision. Battery restrictions, force-stopping the app, notification settings, and Do Not Disturb can affect reminders.
+Ative os lembretes locais em Configurações e permita as notificações quando solicitado. Se o Android pedir acesso a alarmes exatos, conceder essa permissão melhora a precisão dos agendamentos. Restrições de bateria, interrupção forçada do aplicativo, configurações de notificação e o modo Não Perturbe podem afetar os lembretes.
 
-## Verify your download
+## Verifique o download
 
-File: `PepLog-0.6.5.apk`
+Arquivo: `PepLog-0.6.5.apk`
 
 SHA-256:
 

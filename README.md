@@ -1,5 +1,7 @@
 # PepLog
 
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
+
 <p align="center">
   <img src="docs/images/peplog-hero.svg" alt="PepLog — offline peptide calculations, protocol tracking, and journal records" width="100%" />
 </p>
@@ -79,3 +81,7 @@ Debug APK: `app/build/outputs/apk/debug/app-debug.apk`. Debug builds use a diffe
 For a release build, run `assembleRelease` instead. Without local signing configuration, the output is unsigned. Signing keys and passwords are excluded from this repository. The application ID is `app.peptides.journal`.
 
 The `build.ps1` script targets the maintainer's local `.tools/` setup. Use the Gradle wrapper commands above for a fresh clone.
+
+## License
+
+PepLog is licensed under the **Apache License 2.0**. See [LICENSE](LICENSE) for details.

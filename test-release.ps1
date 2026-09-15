@@ -21,7 +21,7 @@ if ($LASTEXITCODE -ne 0) { throw 'Could not clear emulator test data.' }
 $result = & $adb -s $Serial shell am instrument -w app.peptides.journal.test/androidx.test.runner.AndroidJUnitRunner
 $result | Tee-Object -FilePath artifacts/release-device-tests.txt
 New-Item -ItemType Directory -Path artifacts/screenshots -Force | Out-Null
-foreach ($capture in @('home-en.png','syringe-picker-en.png','calculation-en.png','record-en.png','today-en.png','settings-pt.png','history-pt.png','catalog-pt.png','protocol-agenda-en.png','protocol-agenda-pt.png','protocol-empty-en.png','protocol-item-en.png','protocol-calendar-en.png','protocol-calendar-states-en.png','blend-calculation-en.png','blend-today-pt.png','time-picker-en.png','reminder-notification-en.png')) {
+foreach ($capture in @('home-en.png','syringe-picker-en.png','calculation-en.png','record-en.png','today-en.png','settings-pt.png','history-pt.png','catalog-pt.png','protocol-agenda-en.png','protocol-agenda-pt.png','protocol-empty-en.png','protocol-item-en.png','protocol-edit-actions-en.png','protocol-calendar-en.png','protocol-calendar-states-en.png','blend-calculation-en.png','blend-today-pt.png','time-picker-en.png','reminder-notification-en.png')) {
     & $adb -s $Serial pull "/sdcard/Android/data/app.peptides.journal/files/$capture" "artifacts/screenshots/$capture"
 }
-if (($result -join "`n") -notmatch 'OK \(14 tests\)') { throw 'Android release tests failed. See artifacts/release-device-tests.txt.' }
+if (($result -join "`n") -notmatch 'OK \(15 tests\)') { throw 'Android release tests failed. See artifacts/release-device-tests.txt.' }

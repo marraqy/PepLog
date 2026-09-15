@@ -34,11 +34,11 @@ Explore PepLog in three screens. **[Browse all 7 screenshots →](docs/SCREENSHO
 
 Original Android screenshots, with larger previews and links to the full-size JPGs in the gallery.
 
-## Download version 0.6.5
+## Download version 0.6.6
 
-**[Download PepLog for Android](https://github.com/marraqy/PepLog/releases/download/v0.6.5/PepLog-0.6.5.apk)**
+**[Download PepLog for Android](https://github.com/marraqy/PepLog/releases/download/v0.6.6/PepLog-0.6.6.apk)**
 
-Requires **Android 8.0 or later**. Download `PepLog-0.6.5.apk`, open it on your phone, and follow the Android installation prompts. See [installation instructions](INSTALL.md) or the [release page](https://github.com/marraqy/PepLog/releases/tag/v0.6.5).
+Requires **Android 8.0 or later**. Download `PepLog-0.6.6.apk`, open it on your phone, and follow the Android installation prompts. See [installation instructions](INSTALL.md) or the [release page](https://github.com/marraqy/PepLog/releases/tag/v0.6.6).
 
 To update an existing installation, export a backup first and install over the current app without uninstalling it.
 

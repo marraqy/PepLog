@@ -1,10 +1,10 @@
-# Instalar o PepLog 0.6.5
+# Instalar o PepLog 0.6.6
 
 [Read these instructions in English](INSTALL.md)
 
 Requer **Android 8.0 ou superior**.
 
-1. Baixe o [PepLog-0.6.5.apk](https://github.com/marraqy/PepLog/releases/download/v0.6.5/PepLog-0.6.5.apk).
+1. Baixe o [PepLog-0.6.6.apk](https://github.com/marraqy/PepLog/releases/download/v0.6.6/PepLog-0.6.6.apk).
 2. Abra o APK no seu celular Android. Se solicitado, permita a instalação de aplicativos a partir do navegador ou gerenciador de arquivos que estiver utilizando.
 3. Conclua a instalação e abra o **PepLog**.
 4. O inglês é o idioma padrão. Para alterar o idioma, abra Configurações e selecione Português (BR).
@@ -23,10 +23,10 @@ Ative os lembretes locais em Configurações e permita as notificações quando 
 
 ## Verifique o download
 
-Arquivo: `PepLog-0.6.5.apk`
+Arquivo: `PepLog-0.6.6.apk`
 
 SHA-256:
 
 ```text
-C2B452A05B43E5D9D7B3DDDB3C93134F517CA1C54A056AEC3FD2ECC50FB6B9FA
+B4BBBE3D39300B2CCB5CC00670C5775AC5614112A771CC9932F978CC4ACDE519
 ```

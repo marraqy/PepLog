@@ -51,20 +51,32 @@ import java.util.Locale
 
 @Composable private fun ProtocolDialog(title: String, busy: Boolean, close: () -> Unit,
     actionLabel: String? = null, actionEnabled: Boolean = false, action: (() -> Unit)? = null,
+    secondaryLabel: String? = null, secondaryAction: (() -> Unit)? = null,
     content: @Composable ColumnScope.() -> Unit) {
     var discard by rememberSaveable { mutableStateOf(false) }
-    Dialog(onDismissRequest = { if (!busy) discard = true }, properties = DialogProperties(usePlatformDefaultWidth = false)) {
+    // Read the host inset before entering the dialog, which can consume its own insets.
+    val navigationBottom = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
+    Dialog(onDismissRequest = { if (!busy) discard = true }, properties = DialogProperties(usePlatformDefaultWidth = false, decorFitsSystemWindows = false)) {
         Surface(Modifier.fillMaxSize(), color = Paper) {
             Column(Modifier.systemBarsPadding().imePadding()) {
                 Row(Modifier.fillMaxWidth().padding(horizontal = 16.dp), verticalAlignment = Alignment.CenterVertically) {
                     Text(title, Modifier.weight(1f), style = MaterialTheme.typography.titleLarge)
-                    if (actionLabel != null && action != null) {
-                        TextButton(enabled = actionEnabled && !busy, onClick = action) { Text(actionLabel) }
+                    IconButton(enabled = !busy, onClick = { discard = true }) {
+                        Icon(Icons.Outlined.Close, t("Close", "Fechar"))
                     }
-                    TextButton(enabled = !busy, onClick = { discard = true }) { Text(t("Close", "Fechar")) }
                 }
                 if (busy) LinearProgressIndicator(Modifier.fillMaxWidth())
-                content()
+                Column(Modifier.weight(1f)) { content() }
+                if (actionLabel != null && action != null) {
+                    HorizontalDivider()
+                    Column(Modifier.fillMaxWidth().padding(horizontal = 24.dp).padding(top = 8.dp, bottom = navigationBottom + 24.dp)) {
+                        if (secondaryLabel != null && secondaryAction != null) {
+                            TextButton(enabled = !busy, onClick = secondaryAction, modifier = Modifier.fillMaxWidth(),
+                                colors = ButtonDefaults.textButtonColors(contentColor = MaterialTheme.colorScheme.error)) { Text(secondaryLabel) }
+                        }
+                        Button(enabled = actionEnabled && !busy, onClick = action, modifier = Modifier.fillMaxWidth()) { Text(actionLabel) }
+                    }
+                }
             }
         }
         if (discard) Confirm(t("Discard unsaved changes?", "Descartar alterações não salvas?"),
@@ -194,7 +206,6 @@ internal fun ProtocolScreen(rows: List<ProtocolRow>, peptides: List<Peptide>, en
     var entryDraft by rememberSaveable { mutableStateOf("") }
     var day by rememberSaveable { mutableStateOf(LocalDate.now().toString()) }
     var logTime by rememberSaveable { mutableStateOf("") }
-    var logStatus by rememberSaveable { mutableStateOf("done") }
     var query by rememberSaveable { mutableStateOf("") }
     var showArchived by rememberSaveable { mutableStateOf(false) }
     val today = LocalDate.now()
@@ -275,9 +286,10 @@ internal fun ProtocolScreen(rows: List<ProtocolRow>, peptides: List<Peptide>, en
                             if (log.actualMg.isNotBlank()) BlendAmounts(item.entry.composition, item.entry.reference, log.actualMg, t("Recorded per compound", "Registrado por composto"))
                             if (log.notes.isNotBlank()) Text(log.notes)
                         } else if (p.status == "active" && date <= today) {
-                            Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                                Button(enabled = !busy, onClick = { itemId = item.id; logTime = time; logStatus = "done"; modal = "log" }) { Text(t("Mark done", "Marcar realizado")) }
-                                OutlinedButton(enabled = !busy, onClick = { itemId = item.id; logTime = time; logStatus = "skipped"; modal = "log" }) { Text(t("Skip", "Ignorar")) }
+                            key(day) {
+                                CompletionActions(item, day, time, busy,
+                                    skip = { itemId = item.id; logTime = time; modal = "log" },
+                                    record = { log, done -> record(p.id, log, done) })
                             }
                         } else Text(if (date > today) t("Planned", "Planejado") else t("No completion recorded", "Sem realização registrada"))
                     }
@@ -321,25 +333,8 @@ internal fun ProtocolScreen(rows: List<ProtocolRow>, peptides: List<Peptide>, en
         }
     }
     if (modal == "log" && p != null && previous != null) {
-        var amount by rememberSaveable { mutableStateOf("") }
-        var unit by rememberSaveable { mutableStateOf(previous.entry.doseUnit) }
-        var note by rememberSaveable { mutableStateOf("") }
-        val actualMg = runCatching { Mass.toMg(amount, unit).toPlainString() }.getOrNull()
-        val valid = logStatus == "skipped" || actualMg != null
-        ProtocolDialog(statusName(logStatus), busy, { modal = "" }) {
-            Column(Modifier.verticalScroll(rememberScrollState()).padding(24.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
-                Text("${previous.entry.peptideName} · $day · $logTime", style = MaterialTheme.typography.titleLarge)
-                Text(t("Planned: ", "Planejado: ") + entryAmount(previous.entry))
-                if (logStatus == "done") {
-                    AmountField(amount, unit, t("Actual amount", "Quantidade realizada")) { value, chosenUnit -> amount = value; unit = chosenUnit }
-                    if (actualMg != null) BlendAmounts(previous.entry.composition, previous.entry.reference, actualMg, t("Each compound recorded", "Cada composto registrado"))
-                }
-                Field(note, { note = it.take(4000) }, t("Observation (optional)", "Observação (opcional)"), multiline = true)
-                Text(t("Confirm what happened. Saved completions cannot be changed in this version.", "Confirme o que aconteceu. Realizações salvas não podem ser alteradas nesta versão."), style = MaterialTheme.typography.bodySmall)
-                Button(enabled = valid && !busy, onClick = {
-                    record(p.id, ProtocolLog(previous.id, day, logTime, logStatus, if (logStatus == "done") actualMg!! else "", note.trim())) { modal = "" }
-                }) { Text(t("Confirm record", "Confirmar registro")) }
-            }
+        SkipLogDialog(previous, p.name, logTime, day, busy, { modal = "" }) { log ->
+            record(p.id, log) { modal = "" }
         }
     }
 }
@@ -401,7 +396,8 @@ internal fun ProtocolScreen(rows: List<ProtocolRow>, peptides: List<Peptide>, en
     ProtocolDialog(if (previous == null) t("Add peptide", "Adicionar peptídeo") else t("Edit scheduled item", "Editar item da agenda"), busy, close,
         actionLabel = t("Save item", "Salvar item"), actionEnabled = valid, action = {
             save(ProtocolItem(itemDraftId, previous?.group ?: itemDraftId, entry!!, from, to, selectedDays, parsedTimes, notes.trim()))
-        }) {
+        }, secondaryLabel = if (previous != null) t("End item after today", "Encerrar item após hoje") else null,
+        secondaryAction = { ending = true }) {
         Column(Modifier.weight(1f).verticalScroll(rememberScrollState()).padding(24.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
             if (entry != null) {
                 Text(entry.peptideName, style = MaterialTheme.typography.titleLarge)
@@ -431,7 +427,6 @@ internal fun ProtocolScreen(rows: List<ProtocolRow>, peptides: List<Peptide>, en
             Field(notes, { notes = it.take(4000) }, t("Item notes", "Observações do item"), multiline = true)
             if (!valid) Text(t("Select a calculation, weekdays and valid times. Dates must fit the protocol period and start on or after ", "Selecione um cálculo, dias da semana e horários válidos. As datas devem estar no período do protocolo e começar em ou após ") + minimum,
                 style = MaterialTheme.typography.bodySmall)
-            if (previous != null) TextButton(enabled = !busy, onClick = { ending = true }) { Text(t("End this item after today", "Encerrar este item após hoje")) }
         }
         if (picker) {
             var query by rememberSaveable { mutableStateOf("") }
@@ -446,8 +441,8 @@ internal fun ProtocolScreen(rows: List<ProtocolRow>, peptides: List<Peptide>, en
             } }, confirmButton = { TextButton(onClick = { picker = false }) { Text(t("Close", "Fechar")) } })
         }
         if (ending) Confirm(t("End this scheduled item?", "Encerrar este item da agenda?"),
-            t("Future dates will be removed. Earlier dates and saved completions are preserved.", "As datas futuras serão removidas. Datas anteriores e realizações salvas serão preservadas."),
-            t("End item", "Encerrar item"), { ending = false }, endItem)
+            t("Future dates will be removed. Earlier dates and saved completions are preserved. Unsaved edits will be discarded.", "As datas futuras serão removidas. Datas anteriores e realizações salvas serão preservadas. Alterações não salvas serão descartadas."),
+            t("End item", "Encerrar item"), { ending = false }, { if (!busy) endItem() })
     }
 }
 

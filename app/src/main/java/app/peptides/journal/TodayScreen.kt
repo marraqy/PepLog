@@ -30,7 +30,6 @@ internal fun TodayScreen(rows: List<ProtocolRow>, busy: Boolean, now: () -> Zone
     }.sortedWith(compareBy<TodayItem> { it.time }.thenBy { it.protocol.name }.thenBy { it.item.entry.peptideName }) }
     var chosen by rememberSaveable { mutableStateOf<String?>(null) }
     var chosenDay by rememberSaveable { mutableStateOf("") }
-    var status by rememberSaveable { mutableStateOf("done") }
     val selected = protocols.flatMap { protocol -> protocol.items.flatMap { item -> item.times.map { time ->
         TodayItem(protocol, item, time, null)
     } } }.find { "${it.protocol.id}/${it.item.id}/${it.time}" == chosen }
@@ -53,38 +52,31 @@ internal fun TodayScreen(rows: List<ProtocolRow>, busy: Boolean, now: () -> Zone
                     Text(statusName(row.log.status) + if (row.log.actualMg.isBlank()) "" else " · " + entryAmount(row.item.entry, row.log.actualMg), color = logColor(row.log.status))
                     if (row.log.actualMg.isNotBlank()) BlendAmounts(row.item.entry.composition, row.item.entry.reference, row.log.actualMg, t("Recorded per compound", "Registrado por composto"))
                     if (row.log.notes.isNotBlank()) Text(row.log.notes)
-                } else Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                    Button(enabled = !busy, onClick = { chosen = "${row.protocol.id}/${row.item.id}/${row.time}"; chosenDay = today.toString(); status = "done" }) { Text(t("Mark done", "Marcar realizado")) }
-                    OutlinedButton(enabled = !busy, onClick = { chosen = "${row.protocol.id}/${row.item.id}/${row.time}"; chosenDay = today.toString(); status = "skipped" }) { Text(t("Skip", "Ignorar")) }
+                } else key(today) {
+                    CompletionActions(row.item, today.toString(), row.time, busy,
+                        skip = { chosen = "${row.protocol.id}/${row.item.id}/${row.time}"; chosenDay = today.toString() },
+                        record = { log, done -> record(row.protocol.id, log, done) })
                 }
                 HorizontalDivider()
             }
         }
         item { Text(t("Only active protocols appear here. Open Protocols to plan future days or change a schedule.", "Somente protocolos ativos aparecem aqui. Abra Protocolos para planejar os próximos dias ou alterar uma agenda."), style = MaterialTheme.typography.bodySmall) }
     }
-    if (selected != null) TodayLogDialog(selected, chosenDay, status, busy, { chosen = null }) { log -> record(selected.protocol.id, log) { chosen = null } }
+    if (selected != null) SkipLogDialog(selected.item, selected.protocol.name, selected.time, chosenDay, busy, { chosen = null }) { log -> record(selected.protocol.id, log) { chosen = null } }
 }
 
-@Composable private fun TodayLogDialog(row: TodayItem, day: String, status: String, busy: Boolean, dismiss: () -> Unit, save: (ProtocolLog) -> Unit) {
-    var amount by rememberSaveable { mutableStateOf("") }
-    var unit by rememberSaveable { mutableStateOf(row.item.entry.doseUnit) }
+@Composable internal fun SkipLogDialog(item: ProtocolItem, protocolName: String, time: String, day: String, busy: Boolean, dismiss: () -> Unit, save: (ProtocolLog) -> Unit) {
     var note by rememberSaveable { mutableStateOf("") }
-    val actualMg = runCatching { Mass.toMg(amount, unit).toPlainString() }.getOrNull()
-    val valid = status == "skipped" || actualMg != null
-    AlertDialog(onDismissRequest = dismiss, title = { Text(statusName(status)) }, text = {
+    AlertDialog(onDismissRequest = { if (!busy) dismiss() }, title = { Text(t("Skip this occurrence?", "Ignorar esta ocorrência?")) }, text = {
         Column(Modifier.verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.spacedBy(14.dp)) {
-            Text("${row.time} · ${row.item.entry.peptideName}", style = MaterialTheme.typography.titleMedium)
-            Text(row.protocol.name)
+            Text("$time · ${item.entry.peptideName}", style = MaterialTheme.typography.titleMedium)
+            Text(protocolName)
             Text(LocalDate.parse(day).format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM)
                 .withLocale(if (LocalLanguage.current) Locale.forLanguageTag("pt-BR") else Locale.US)))
-            Text(t("Planned: ", "Planejado: ") + entryAmount(row.item.entry))
-            if (status == "done") {
-                AmountField(amount, unit, t("Actual amount", "Quantidade realizada")) { value, chosenUnit -> amount = value; unit = chosenUnit }
-                if (actualMg != null) BlendAmounts(row.item.entry.composition, row.item.entry.reference, actualMg, t("Each compound recorded", "Cada composto registrado"))
-            }
+            Text(t("Planned: ", "Planejado: ") + entryAmount(item.entry))
             Field(note, { note = it.take(4000) }, t("Observation (optional)", "Observação (opcional)"), multiline = true)
         }
-    }, confirmButton = { TextButton(enabled = valid && !busy, onClick = {
-        save(ProtocolLog(row.item.id, day, row.time, status, if (status == "done") actualMg!! else "", note.trim()))
-    }) { Text(t("Confirm record", "Confirmar registro")) } }, dismissButton = { TextButton(onClick = dismiss) { Text(t("Cancel", "Cancelar")) } })
+    }, confirmButton = { TextButton(enabled = !busy, onClick = {
+        save(ProtocolLog(item.id, day, time, "skipped", "", note.trim()))
+    }) { Text(t("Confirm record", "Confirmar registro")) } }, dismissButton = { TextButton(enabled = !busy, onClick = dismiss) { Text(t("Cancel", "Cancelar")) } })
 }

@@ -22,6 +22,10 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalView
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.Role
@@ -55,7 +59,9 @@ import java.util.Locale
     content: @Composable ColumnScope.() -> Unit) {
     var discard by rememberSaveable { mutableStateOf(false) }
     // Read the host inset before entering the dialog, which can consume its own insets.
-    val navigationBottom = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
+    val navigationPixels = ViewCompat.getRootWindowInsets(LocalView.current)
+        ?.getInsets(WindowInsetsCompat.Type.navigationBars())?.bottom ?: 0
+    val navigationBottom = with(LocalDensity.current) { navigationPixels.toDp() }
     Dialog(onDismissRequest = { if (!busy) discard = true }, properties = DialogProperties(usePlatformDefaultWidth = false, decorFitsSystemWindows = false)) {
         Surface(Modifier.fillMaxSize(), color = Paper) {
             Column(Modifier.systemBarsPadding().imePadding()) {

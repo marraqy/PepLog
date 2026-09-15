@@ -36,6 +36,38 @@ class ReviewInterfaceTest {
             doses = c.doses.toPlainString(), remainder = c.remainder.toPlainString())
     }
 
+    @Test fun completionUsesPlanOrInlineAdjustmentAndKeepsDraftOnFailure() {
+        val item = ProtocolItem(entry = entry().copy(doseUnit = "mcg"), from = "2026-09-01", days = (1..7).toList(), times = listOf("08:00"))
+        var log: ProtocolLog? = null
+        var busy by mutableStateOf(false)
+        content { MaterialTheme {
+            CompletionActions(item, "2026-09-14", "08:00", busy, skip = {}, record = { value, _ -> log = value })
+        } }
+        compose.onNodeWithText("Done as planned", substring = true).performClick()
+        assertEquals(item.entry.dose, log?.actualMg)
+        assertEquals("2026-09-14", log?.day)
+        assertEquals("08:00", log?.time)
+        compose.onNodeWithText("Confirm record").assertDoesNotExist()
+        compose.onNodeWithText("Adjust amount / note").performClick()
+        compose.onNodeWithText("Actual amount (mcg)").assertTextContains("1000")
+        compose.onNodeWithText("Actual amount (mcg)").performTextReplacement("0")
+        compose.onNodeWithText("Confirm record").assertIsNotEnabled()
+        compose.onNodeWithText("Actual amount (mcg)").performTextReplacement("800")
+        compose.onNodeWithText("Observation (optional)").performTextReplacement("Adjusted")
+        compose.onNodeWithText("Confirm record").performClick()
+        assertEquals(0, "0.8".toBigDecimal().compareTo(log!!.actualMg.toBigDecimal()))
+        assertEquals("Adjusted", log?.notes)
+        // The save callback is intentionally not completed: a failure must retain the draft.
+        compose.onNodeWithText("Actual amount (mcg)").assertTextContains("800")
+        compose.runOnIdle { busy = true }
+        compose.onNodeWithText("Confirm record").assertIsNotEnabled()
+        compose.runOnIdle { busy = false }
+        compose.onNodeWithText("Cancel").performClick()
+        compose.onNodeWithText("Done as planned", substring = true).performClick()
+        assertEquals(item.entry.dose, log?.actualMg)
+        assertEquals("", log?.notes)
+    }
+
     @Test fun midnightKeepsChosenDayAndTimezoneAndResumeRefreshToday() {
         var now = ZonedDateTime.parse("2026-09-10T23:59:59Z")
         var log: ProtocolLog? = null

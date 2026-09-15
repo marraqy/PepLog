@@ -138,7 +138,7 @@ class BlendInterfaceTest {
             click("Active")
             click("Save protocol")
             click("Today")
-            click("Mark done")
+            click("Adjust amount / note")
             fill("Actual amount (mcg)", "100")
             compose.onNodeWithText("Alpha: 0.2 mg · 200 mcg").performScrollTo().assertExists()
             click("Confirm record")

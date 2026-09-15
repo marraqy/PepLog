@@ -14,6 +14,7 @@ An offline Android app for peptide calculations, blend composition, and protocol
 - **Syringe selection:** choose capacity and graduation or configure a custom scale.
 - **Calculation history:** save, search, filter by date, edit, and reuse calculations.
 - **Protocol tracking:** plan dates, weekdays, and times; record completed or skipped occurrences from Today or the monthly calendar.
+- **Quick completion:** record the planned amount in one tap, or adjust the amount and add a note directly in the agenda.
 - **Protocol management:** delete unused protocols or archive protocols while preserving their history.
 - **Local reminders:** optional Android notifications for scheduled occurrences.
 - **Backup and restore:** export and restore your data as a JSON file.
